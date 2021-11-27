@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Google Photos</title>
+
+</head>
+
+<style>
+
+                body{
+
+            background: black;
+
+            }
+
+            .red,.green,.blue,.yellow{
+
+            width: 130px;
+
+            height: 130px;
+
+            border-radius: 50%;
+
+            }
+
+            .cover,.trans_cover{
+
+            width: 300px;
+
+            height: 300px;
+
+            border-radius: 50%;
+
+            position: absolute;
+
+            top: 50%;
+
+            left: 50%;
+
+            }
+
+            .cover{background: white;transform: translate(-50%,-50%);}
+
+             .cover .red{
+
+         background: linear-gradient(to right, transparent 50%, #ea4e3b 50%);
+
+         margin: 20px auto 0 auto;
+
+            }
+
+            .cover .green{
+
+         background: linear-gradient(to right, transparent 50%, #38a856 50%);
+
+         margin: 0 auto;
+
+         transform: rotateZ(-180deg);
+
+            }
+
+            .trans_cover
+
+            {
+
+                background: transparent;    
+
+                transform: translate(-50%,-50%) rotateZ(90deg);
+
+                }    
+
+    .trans_cover .blue{
+
+         margin: 20px auto 0 auto;        
+
+         background: linear-gradient(to right, transparent 50%, #3d86f4 50%); 
+
+            }
+
+         .trans_cover .yellow{
+
+         margin: 0 auto;
+
+         transform: rotateZ(-180deg);
+
+         background: linear-gradient(to right, transparent 50%, #fbc400 50%);
+
+            }
+
+            @font-face {
+
+  font-family: 'Product Sans';
+
+  font-style: normal;
+
+  font-weight: 400;
+
+  src: local('Open Sans'), local('OpenSans'), url(https://fonts.gstatic.com/s/productsans/v5/HYvgU2fE2nRJvZ5JFAumwegdm0LZdjqr5-oayXSOefg.woff2) format('woff2');
+
+}
+
+            .label{
+
+            widows: auto;
+
+            font-family: Product Sans;
+
+            font-size: 30px;
+
+            color: white;
+
+            position: absolute;
+
+            top: 90%;
+
+            left: 50%;
+
+         transform: translate(-50%,-50%);
+
+         white-space: nowrap;
+
+            }
+
+span{
+
+            font-weight: 600;
+
+}
+
+</style>
+
+<body>
+
+     <div class="cover">
+
+        <div class="red"></div>
+
+        <div class="green"></div>
+
+     </div>
+
+     <div class="trans_cover">
+
+        <div class="blue"></div>
+
+        <div class="yellow"></div>
+
+     </div>
+
+     <div class="label">
+
+        <span>Google </span>Photos
+
+     </div>
+
+</body>
+
+</html>
