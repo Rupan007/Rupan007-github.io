@@ -1,4 +1,4 @@
-<div class="title">
+'<div class="title">
 								 			<div class="date">Saturday, November 19, 2021</div>
 								 			<div class="time">19:30 IST</div>
 								 </div>								 
@@ -929,4 +929,4 @@
 								 						</div><!-- Head 2 Head -->
 								 			</div><!-- group items -->
 								 </div><!-- list -->
-								 <hr>	
+								 <hr>'	
