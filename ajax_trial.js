@@ -1,4 +1,3 @@
-ATKMB 1 - 1 KBFC
-2' Goal - Hugo Boumous
-25' Goal - Sahal A. Samad
-27' Penalty Goal - Roy Krishna
+<div>ATKMB 0 - 0 KBFC</div>
+<div>Boumous 3’     Sahal 25’</div>
+<div>Krishna 27’     </div>
