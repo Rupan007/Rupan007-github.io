@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Color Generator</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="shortcut icon" href="https://raw.githubusercontent.com/Rupan007/Rupan007-github.io/main/favicon.ico" type="image/x-icon">
+</head>
+<style>
+			@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300&display=swap');
+			@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+			body 
+			{
+						background: #262626;
+						margin: 0;
+						font-family: 'Outfit', san-serif;
+			}
+			header, footer
+			{
+						width: 100%;
+						height: 50px;
+						position: absolute;
+						background: black;
+						text-align: center;
+						line-height: 50px;
+						box-shadow: 0 0 5px #525252;
+						color: ghostwhite;
+			}		
+			header
+			{
+						top: 0;
+						font-size: 30px;
+			}
+			footer
+			{			
+					  bottom: 0;
+					  font-size: 20px;
+			}
+			.container
+			{
+						width: 80%;
+						height: auto;
+						position: absolute;
+						left: 50%;
+						top: 50%;
+						transform: translate(-50%,-50%);
+						border: solid 2px black;
+						padding: 5px 10px;
+						background: rgba(255,255,255,0.5);
+			}
+			.container div
+			{
+						width: 100%;
+						margin: 5px 0;
+						background: lightgray;
+						border: solid 1px black;						
+						transition-duration: 0.15s;
+			}
+			.container #display_color
+			{
+						height: 300px;
+						background: white;
+			}
+			input
+			{
+						font-size: 15px;	
+						font-family: 'Poppins', san-serif;		
+			}
+			#display_color input
+			{
+						width: 65px;
+						height: 30px;
+						margin: 0;
+						text-align: center;			
+						background: lightgray;			
+						border: solid 1px black;
+			}
+			#display_color #button
+			{
+						float: right;	
+			}
+			#display_code, #generate, #heading
+			{
+						height: 40px;			
+						display: flex;
+			}
+			#heading div
+			{
+						width: 50%;
+						height: 100%;
+			}
+			#display_code input, #heading input
+			{
+						width: 50%;		
+						height: 100%;		
+						display: inline-block;		
+						text-align: center;
+						border: none;
+						background: transparent;
+			}
+			.color_code
+			{
+						font-family: Monaco;
+			}
+	  	#display_code input:hover
+			{
+						background: lemonchiffon;
+			}
+			#heading input
+			{
+						width: 100%;
+						font-weight: 700;						
+			}
+			#generate input
+			{
+						width: 100%;
+						font-weight: 700;
+						border: none;
+						background: transparent;
+			}
+			#generate:hover
+			{
+						background: lemonchiffon;
+			}
+</style>
+<body>
+	<header>Color Generator</header>
+	<div class="container">
+				
+				<div id="display_color"><!-- Display the color -->
+								<input type="color" id="custom_color" value="#ffffff"> <!-- select color -->
+								<input type="button" value="Copy" id="button"> <!-- copy button -->
+				</div>
+				
+				<div id="heading">
+							<input type="text" value="HEX Code" readonly>
+							<input type="text" value="RGB Code" readonly>							
+				</div>
+				
+			 <div id="display_code">	 	
+			 				<input type="button" value="#ffffff" class="color_code"> <!-- display hex code color -->
+	 						<input type="button" value="rgb(255,255,255)" class="color_code">	 <!-- display rgb code color -->
+			 </div>
+			 
+		  	<div id="generate">
+				   <input type="button" value="Generate"> <!-- button -->  </div>
+	  		
+	</div>
+ <footer></footer>
+</body>
+<script>
+			alert("Click or Tap on the respective code to copy");
+document.querySelector("body").onload = function() {
+var hex_code = document.querySelectorAll(".color_code")[0];
+var rgb_code = document.querySelectorAll(".color_code")[1];
+var display = document.querySelector("#display_color");
+var generate = document.querySelector("#generate");
+var button = document.querySelector("#button");
+var custom_color = document.querySelector("#custom_color");
+var hex_value = [ "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"];
+var rgb_value = [0, 1, 2, 3, 4, 5, 6 , 7, 8, 9, 10, 11, 12, 13, 14 ,15]; 
+
+generate.onclick = function()
+{	
+  button.value= "Copy";
+  button.style.background = "lightgray";
+  var hex_color = [];
+	 var hex_color_code = "#";
+  for(var i = 0; i<6; i++)
+  {
+    hex_color[i]= hex_value[Math.round(Math.random()*15)];
+  }
+  var r = 0, g = 0, b = 0, k = 1;
+  for(var i = 0; i<hex_color.length; i++)
+  { 
+  	  	for(var j = 0; j<hex_value.length; j++)
+  	  	{
+  	  			if(hex_value[j]==hex_color[i])
+  	  		  {
+  	  							if(i<2)
+  	          {
+  												r+= rgb_value[j]*Math.pow(16,k);  				  
+   							 	}
+   							 else if(i>1 && i<4)
+  		 						 {
+  					 							g+= rgb_value[j]*Math.pow(16,k);  					 
+   							 	}
+   	 							else if(i>3 && i<6)
+  		 						{
+  												b+= rgb_value[j]*Math.pow(16,k);
+   	 						 	}
+  	 			 }
+  	  	}
+   	 	if(k==0)
+  			 	 	k=1;
+   	 	else
+		  			k--;
+  }
+rgb_code.value = "rgb("+r+","+g+","+b+")";
+for(var i = 0; i<hex_color.length; i++)
+hex_color_code+= hex_color[i];
+display.style.background = hex_color_code;
+hex_code.value = hex_color_code;
+custom_color.value = hex_color_code;
+hex_color_code = "#";
+rgb_color = "";
+}
+
+custom_color.onchange = function()
+{
+		var custom_color_code = custom_color.value, hex_color =  "";			
+  	display.style.background = custom_color_code;
+	 hex_code.value = custom_color.value;	
+	 var hex_color = hex_code.value;
+	 hex_color = hex_color.substring(1,7);
+		var r = 0, g = 0, b = 0, k = 1;
+  for(var i = 0; i<hex_color.length; i++)
+  { 
+  	  	for(var j = 0; j<hex_value.length; j++)
+  	  	{
+  	  			if(hex_value[j]==hex_color[i])
+  	  		  {
+  	  							if(i<2)
+  	          {
+  												r+= rgb_value[j]*Math.pow(16,k);  				  
+   							 	}
+   							 else if(i>1 && i<4)
+  		 						 {
+  					 							g+= rgb_value[j]*Math.pow(16,k);  					 
+   							 	}
+   	 							else if(i>3 && i<6)
+  		 						{
+  												b+= rgb_value[j]*Math.pow(16,k);
+   	 						 	}
+  	 			 }
+  	  	}
+   	 	if(k==0)
+  			 	 	k=1;
+   	 	else
+		  			k--;
+  }
+rgb_code.value = "rgb("+r+","+g+","+b+")";
+}
+
+hex_code.onclick = function() 
+{ 
+  navigator.clipboard.writeText(hex_code.value);
+  button.value= "Copied!";
+  button.style.background = "lemonchiffon";
+  button.style.transitionDuration = ".3s";
+}
+rgb_code.onclick = function() 
+{ 
+  navigator.clipboard.writeText(rgb_code.value);
+  button.value= "Copied!";
+  button.style.background = "lemonchiffon";
+  button.style.transitionDuration = ".3s";
+}
+
+var footer = document.querySelector("footer");
+var footer_text = "Made by Rupan", text = "";
+var count = 0;
+var x = setInterval(function() 
+{		 
+		 			 text+=footer_text.charAt(count);
+					 footer.innerHTML = text;		
+					  		 
+		 if(count==footer_text.length)		  
+		  {
+		    clearInterval(x);
+		    footer.innerHTML = text;
+		  }
+		  		 
+		 else
+		 count++;
+},300);
+}
+</script>
+</html>
