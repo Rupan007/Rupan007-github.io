@@ -207,6 +207,8 @@ rgb_color = "";
 
 custom_color.onchange = function()
 {
+   button.value= "Copy";
+   button.style.background = "lightgray";
 		var custom_color_code = custom_color.value, hex_color =  "";			
   	display.style.background = custom_color_code;
 	 hex_code.value = custom_color.value;	
