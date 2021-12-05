@@ -1,6 +1,6 @@
 - 👋 Hi, I’m @Rupan007
 - 👀 I’m interested in Web Development
-- 🌱 I’m currently learning Java
+- 🌱 I’m currently learning Java & CSS
 
 <!---
 Rupan007/Rupan007 is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
